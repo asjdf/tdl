@@ -29,13 +29,7 @@ builds:
 checksum:
   name_template: '{{ .ProjectName }}_checksums.txt'
 archives:
-  - name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
-    replacements:
-      darwin: MacOS
-      linux: Linux
-      windows: Windows
-      386: 32bit
-      amd64: 64bit
+  - name_template: '{{ .ProjectName }}_{{ title .Os }}_{{if eq .Arch "amd64" }}64bit{{else if eq .Arch "386" }}32bit{{else }}{{ .Arch }}{{ end }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
     format_overrides:
       - goos: windows
         format: zip
