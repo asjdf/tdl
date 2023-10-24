@@ -63,7 +63,10 @@ changelog:
 release:
   draft: true
 brews:
-  -
+  - repository:
+      owner: "Homebrew"
+      name: "homebrew-core"
+      token: "{{ .Env.GITHUB_TOKEN }}"
     name: "tdl"
     commit_author:
       name: goreleaserbot
@@ -75,7 +78,3 @@ brews:
     description: "A Telegram downloader/tools written in Golang."
     license: "AGPL-3.0"
     skip_upload: auto
-    repository:
-      owner: "Homebrew"
-      name: "homebrew-core"
-      token: "{{ .Env.GITHUB_TOKEN }}"
