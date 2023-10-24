@@ -62,3 +62,20 @@ changelog:
       order: 4
 release:
   draft: true
+brews:
+  -
+    name: "tdl"
+    commit_author:
+      name: goreleaserbot
+      email: bot@goreleaser.com
+    commit_msg_template: "{{ .ProjectName }}: update {{ .Tag }} bottle"
+    folder: Formula/t
+    caveats: "Check https://docs.iyear.me/tdl/"
+    homepage: "https://github.com/iyear/tdl"
+    description: "A Telegram downloader/tools written in Golang."
+    license: "AGPL-3.0"
+    skip_upload: auto
+    repository:
+      owner: "Homebrew"
+      name: "homebrew-core"
+      token: "{{ .Env.GITHUB_TOKEN }}"
